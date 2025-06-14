@@ -1,5 +1,7 @@
 extends Node
 
+signal reparent_provinces
+
 func _ready() -> void:
 	generate_states()
 
@@ -30,10 +32,15 @@ func generate_states() -> void:
 		to = file_content.find("}") - from
 		var provinces = file_content.substr(from, to).strip_edges().split(" ")
 
-		print(id)
-		print(state_name)
-		print(provinces)
+		# Create and assign new State instance
+		var state: State = State.new()
+		state.name = str(id)
+		state.id = id
+		state.state_name = state_name
+		state.provinces = provinces
+		add_child(state)
+		reparent_provinces.emit(state)
 
 		file_name = state_folder.get_next()
-
 	state_folder.list_dir_end()
+	print("FINISHED GENERATING STATES")

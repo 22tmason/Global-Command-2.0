@@ -18,3 +18,9 @@ func _on_player_province_selected(coordinates: Vector2) -> void:
 
 	print("Selected province:", selected_province)
 	$ProvinceSelected.update_label(selected_province)
+
+
+func _on_state_importer_reparent_provinces(state) -> void:
+	for province in state.provinces:
+		var node_to_move = $Provinces.get_node(province)
+		node_to_move.reparent(state)
