@@ -1,6 +1,7 @@
 extends Node
 
 func _ready() -> void:
+	create_countries("NNN", "No name", Color(0.5, 0.5, 0.5), "Democratic")         # Blue
 	create_countries("USA", "United States", Color(0.0, 0.0, 1.0), "Democratic")         # Blue
 	create_countries("FRA", "France", Color(0.0, 0.4, 1.0), "Democratic")                # Sky Blue
 	create_countries("DEU", "Germany", Color(0.1, 0.1, 0.1), "Democratic")              # Dark Gray
@@ -30,3 +31,4 @@ func create_countries(tag, country_name, color, ideology):
 	country.color = color
 	country.ideology = ideology
 	add_child(country)
+	Globals.tag_to_country[tag] = country

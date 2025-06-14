@@ -34,6 +34,9 @@ func generate_provinces() -> void:
 			province.id = province_id
 			province.color = province_color
 			province.type = province_type
+			if province_type == "land":
+				province.set_province_owner("NNN")
+				province.set_province_controller("NNN")
 
 			# Optional: add to scene tree for debugging or visibility
 			add_child(province)

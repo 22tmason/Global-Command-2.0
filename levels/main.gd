@@ -17,7 +17,7 @@ func _on_player_province_selected(coordinates: Vector2) -> void:
 	var selected_province: Province = $Provinces.color_to_province.get(province_color, null)
 
 	print("Selected province:", selected_province)
-	$ProvinceSelected.update_label(selected_province)
+	$ProvinceSelected.update_labels(selected_province)
 
 
 func _on_states_reparent_provinces(state: Node) -> void:

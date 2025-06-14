@@ -1,9 +1,15 @@
 extends Node
 class_name Province
 
-var id:int
-var color:Color
-var type:String
+var id: int
+var color: Color
+var type: String
 
-var province_owner:Country  # country tag or a reference to the country node
-var province_controller:Country  # optional logic/controller reference
+var province_owner: Country
+var province_controller: Country
+
+func set_province_owner(tag: String) -> void:
+	province_owner = Globals.tag_to_country[tag]
+
+func set_province_controller(tag: String) -> void:
+	province_controller = Globals.tag_to_country[tag]
