@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bitwnxbq1avt1"]
+
+[ext_resource type="PackedScene" uid="uid://c2me0grujkobm" path="res://Global-Command-2.0/map/map.tscn" id="1_4m5uj"]
+[ext_resource type="Script" uid="uid://cr6u40afhmcub" path="res://Global-Command-2.0/levels/main.gd" id="1_gdagh"]
+[ext_resource type="PackedScene" uid="uid://cjtlcdvrovk2f" path="res://Global-Command-2.0/Player/player.tscn" id="2_d7glj"]
+[ext_resource type="Texture2D" uid="uid://da0l2p10o86ia" path="res://Global-Command-2.0/map/map_data/province_map.bmp" id="2_x6l8g"]
+[ext_resource type="Script" uid="uid://cvcwxbn38kxa" path="res://Global-Command-2.0/levels/province_importer.gd" id="5_uacoo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d7glj"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_gdagh"]
+sky_material = SubResource("ProceduralSkyMaterial_d7glj")
+
+[sub_resource type="Environment" id="Environment_x6l8g"]
+background_mode = 2
+sky = SubResource("Sky_gdagh")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_gdagh")
+province_map = ExtResource("2_x6l8g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x6l8g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Map" parent="." instance=ExtResource("1_4m5uj")]
+
+[node name="Player" parent="." instance=ExtResource("2_d7glj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 290.611, 0, 112.183)
+
+[node name="Provinces" type="Node" parent="."]
+script = ExtResource("5_uacoo")
+
+[connection signal="province_selected" from="Player" to="." method="_on_player_province_selected"]

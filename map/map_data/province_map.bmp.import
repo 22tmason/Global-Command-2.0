@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g2yki3w8k883"
-path="res://.godot/imported/height_map.bmp-8004fd353f8b71fdc265405ad83ada9d.ctex"
+uid="uid://da0l2p10o86ia"
+path="res://.godot/imported/province_map.bmp-20c32aaa5c32641ec419c12efa00ff57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map_data/height_map.bmp"
-dest_files=["res://.godot/imported/height_map.bmp-8004fd353f8b71fdc265405ad83ada9d.ctex"]
+source_file="res://Global-Command-2.0/map/map_data/province_map.bmp"
+dest_files=["res://.godot/imported/province_map.bmp-20c32aaa5c32641ec419c12efa00ff57.ctex"]
 
 [params]
 
