@@ -1,0 +1,2 @@
+# Global Command 2.0
+A country management game set in an interactive world map with all countries, states, and provinces. Main features will include GDP and resource management, political decisions, production and construction management, and managing the country population with factors like population growth, stability, productivity, and war support. Finally, as a conquest game, the country leader can declare war on other countries, annex them, and possibly form factions with other countries.
