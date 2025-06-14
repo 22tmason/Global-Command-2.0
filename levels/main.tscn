@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bitwnxbq1avt1"]
+[gd_scene load_steps=12 format=3 uid="uid://bitwnxbq1avt1"]
 
 [ext_resource type="PackedScene" uid="uid://c2me0grujkobm" path="res://Global-Command-2.0/map/map.tscn" id="1_4m5uj"]
 [ext_resource type="Script" uid="uid://cr6u40afhmcub" path="res://Global-Command-2.0/levels/main.gd" id="1_gdagh"]
 [ext_resource type="PackedScene" uid="uid://cjtlcdvrovk2f" path="res://Global-Command-2.0/Player/player.tscn" id="2_d7glj"]
 [ext_resource type="Texture2D" uid="uid://da0l2p10o86ia" path="res://Global-Command-2.0/map/map_data/province_map.bmp" id="2_x6l8g"]
+[ext_resource type="Script" uid="uid://dr6qkgadm73g6" path="res://Global-Command-2.0/scripts/country_importer.gd" id="5_bdlwj"]
 [ext_resource type="Script" uid="uid://cvcwxbn38kxa" path="res://Global-Command-2.0/scripts/province_importer.gd" id="5_uacoo"]
 [ext_resource type="PackedScene" uid="uid://bsw36k4g3t1n1" path="res://Global-Command-2.0/ui/province_selected.tscn" id="6_bd8vf"]
 [ext_resource type="Script" uid="uid://br1reom1f5mn1" path="res://Global-Command-2.0/scripts/state_importer.gd" id="6_tuuch"]
@@ -37,6 +38,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.6, 0, 101.099)
 
 [node name="Player" parent="." instance=ExtResource("2_d7glj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 288.502, 0, 109.598)
+
+[node name="Countries" type="Node" parent="."]
+script = ExtResource("5_bdlwj")
 
 [node name="Provinces" type="Node" parent="."]
 script = ExtResource("5_uacoo")
