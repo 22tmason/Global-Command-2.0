@@ -20,7 +20,11 @@ func _on_player_province_selected(coordinates: Vector2) -> void:
 	$ProvinceSelected.update_label(selected_province)
 
 
-func _on_state_importer_reparent_provinces(state) -> void:
-	for province in state.provinces:
-		var node_to_move = $Provinces.get_node(province)
-		node_to_move.reparent(state)
+func _on_states_reparent_provinces(state: Node) -> void:
+	for province_id in state.provinces:
+		var province_node_path = "Provinces/" + str(province_id)
+		if has_node(province_node_path):
+			var province_node = get_node(province_node_path)
+			province_node.reparent(state)
+		else:
+			print("Missing province node for ID:", province_id)
