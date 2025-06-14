@@ -4,6 +4,7 @@ signal reparent_provinces
 
 func _ready() -> void:
 	generate_states()
+	assign_owners()
 
 func generate_states() -> void:
 	print("STARTING TO GENERATE STATES")
@@ -45,5 +46,28 @@ func generate_states() -> void:
 	state_folder.list_dir_end()
 	print("FINISHED GENERATING STATES")
 
+func assign_owners() -> void:
+	get_node("270").set_state_owner("FRA")
+	get_node("270").set_state_controller("FRA")
+
+	get_node("221").set_state_owner("DEU")
+	get_node("221").set_state_controller("DEU")
+
+	get_node("301").set_state_owner("ITA")
+	get_node("301").set_state_controller("ITA")
+	
+	get_node("306").set_state_owner("ITA")
+	get_node("306").set_state_controller("ITA")
+	
+	get_node("341").set_state_owner("ESP")
+	get_node("341").set_state_controller("ESP")
+	get_node("328").set_state_owner("ESP")
+	get_node("328").set_state_controller("ESP")
+
+	get_node("166").set_state_owner("GBR")
+	get_node("166").set_state_controller("GBR")
+
+	get_node("224").set_state_owner("POL")
+	get_node("224").set_state_controller("POL")
 
 	
