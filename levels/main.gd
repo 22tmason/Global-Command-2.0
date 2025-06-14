@@ -3,11 +3,18 @@ extends Node3D
 @export var province_map: Texture2D
 
 func _on_player_province_selected(coordinates: Vector2) -> void:
-	# Get the pixel color at the clicked coordinates (scaled to match map resolution)
-	var province_color = province_map.get_image().get_pixel(coordinates.x * 10, coordinates.y * 10)
+	var image: Image = province_map.get_image()
+	var map_width: int = image.get_width()
+	var map_height: int = image.get_height()
 
-	# Look up the matching Province object using the color
-	var selected_province = $Provinces.color_to_province.get(province_color)
+	var world_width: float = 563.2
+	var world_height: float = 211.2
 
-	# Output the province info (make sure Province has a .name or .id etc.)
+	var px: int = clamp(int(coordinates.x / world_width * map_width), 0, map_width - 1)
+	var py: int = clamp(int(coordinates.y / world_height * map_height), 0, map_height - 1)
+
+	var province_color: Color = image.get_pixel(px, py)
+	var selected_province: Province = $Provinces.color_to_province.get(province_color, null)
+
 	print("Selected province:", selected_province)
+	$ProvinceSelected.update_label(selected_province)

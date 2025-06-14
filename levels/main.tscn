@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bitwnxbq1avt1"]
+[gd_scene load_steps=10 format=3 uid="uid://bitwnxbq1avt1"]
 
 [ext_resource type="PackedScene" uid="uid://c2me0grujkobm" path="res://Global-Command-2.0/map/map.tscn" id="1_4m5uj"]
 [ext_resource type="Script" uid="uid://cr6u40afhmcub" path="res://Global-Command-2.0/levels/main.gd" id="1_gdagh"]
 [ext_resource type="PackedScene" uid="uid://cjtlcdvrovk2f" path="res://Global-Command-2.0/Player/player.tscn" id="2_d7glj"]
 [ext_resource type="Texture2D" uid="uid://da0l2p10o86ia" path="res://Global-Command-2.0/map/map_data/province_map.bmp" id="2_x6l8g"]
-[ext_resource type="Script" uid="uid://cvcwxbn38kxa" path="res://Global-Command-2.0/levels/province_importer.gd" id="5_uacoo"]
+[ext_resource type="Script" uid="uid://cvcwxbn38kxa" path="res://Global-Command-2.0/scripts/province_importer.gd" id="5_uacoo"]
+[ext_resource type="PackedScene" uid="uid://bsw36k4g3t1n1" path="res://Global-Command-2.0/ui/province_selected.tscn" id="6_bd8vf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d7glj"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -31,11 +32,14 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Map" parent="." instance=ExtResource("1_4m5uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.6, 0, 101.099)
 
 [node name="Player" parent="." instance=ExtResource("2_d7glj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 290.611, 0, 112.183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 288.502, 0, 109.598)
 
 [node name="Provinces" type="Node" parent="."]
 script = ExtResource("5_uacoo")
+
+[node name="ProvinceSelected" parent="." instance=ExtResource("6_bd8vf")]
 
 [connection signal="province_selected" from="Player" to="." method="_on_player_province_selected"]

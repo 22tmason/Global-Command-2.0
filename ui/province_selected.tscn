@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsw36k4g3t1n1"]
+
+[ext_resource type="Script" uid="uid://d4gbcsuyw0612" path="res://Global-Command-2.0/ui/province_selected.gd" id="1_jlb10"]
+
+[node name="ProvinceSelected" type="CanvasLayer"]
+script = ExtResource("1_jlb10")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_right = 265.0
+offset_bottom = 39.0
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Province ID:"
+
+[node name="LabelProvinceID" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Province Colour:"
+
+[node name="ColorPickerProvinceColor" type="ColorPickerButton" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label5" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+text = "Province Type:"
+
+[node name="LabelProvinceType" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
