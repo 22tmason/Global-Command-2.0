@@ -53,3 +53,10 @@ text = "Controller"
 
 [node name="LabelController" type="Label" parent="PanelContainer/GridContainer"]
 layout_mode = 2
+
+[node name="Label4" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2
+text = "State"
+
+[node name="LabelState" type="Label" parent="PanelContainer/GridContainer"]
+layout_mode = 2

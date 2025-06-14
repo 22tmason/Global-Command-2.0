@@ -44,3 +44,6 @@ func generate_states() -> void:
 		file_name = state_folder.get_next()
 	state_folder.list_dir_end()
 	print("FINISHED GENERATING STATES")
+
+
+	
