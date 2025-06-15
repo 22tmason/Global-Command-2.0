@@ -1,22 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2me0grujkobm"]
+[gd_scene load_steps=10 format=3 uid="uid://c2me0grujkobm"]
 
 [ext_resource type="Texture2D" uid="uid://dd24c8sbprwjt" path="res://Global-Command-2.0/map/map_data/TerrainImage.bmp" id="1_ih5wy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w23h"]
-albedo_texture = ExtResource("1_ih5wy")
+[ext_resource type="Script" uid="uid://dd6eu7e7bx03w" path="res://Global-Command-2.0/map/map.gd" id="1_riom3"]
+[ext_resource type="Shader" uid="uid://baq040qp82cf7" path="res://Global-Command-2.0/map/shaders/map3d.gdshader" id="1_y3yct"]
+[ext_resource type="Shader" uid="uid://bhuhifjohi8tq" path="res://Global-Command-2.0/map/shaders/map2d.gdshader" id="2_2w23h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_y3yct"]
 size = Vector2(563.2, 211.2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_riom3"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_331ty"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_y3yct")
+shader_parameter/subview_image = SubResource("ViewportTexture_riom3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y3yct"]
+shader = ExtResource("2_2w23h")
+shader_parameter/terrain_image = ExtResource("1_ih5wy")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_riom3"]
 size = Vector3(563.2, 1, 211.2)
 
 [node name="Map" type="StaticBody3D"]
+script = ExtResource("1_riom3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00352, 0, 1.00077)
-material_override = SubResource("StandardMaterial3D_2w23h")
 mesh = SubResource("PlaneMesh_y3yct")
+surface_material_override/0 = SubResource("ShaderMaterial_331ty")
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D"]
+size = Vector2i(5632, 2112)
+
+[node name="Sprite2D" type="Sprite2D" parent="MeshInstance3D/SubViewport"]
+material = SubResource("ShaderMaterial_y3yct")
+texture = ExtResource("1_ih5wy")
+centered = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_riom3")

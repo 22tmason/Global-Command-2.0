@@ -33,9 +33,6 @@ environment = SubResource("Environment_x6l8g")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Map" parent="." instance=ExtResource("1_4m5uj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.6, 0, 101.099)
-
 [node name="Player" parent="." instance=ExtResource("2_d7glj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 288.502, 0, 84.9636)
 
@@ -47,6 +44,9 @@ script = ExtResource("5_uacoo")
 
 [node name="States" type="Node" parent="."]
 script = ExtResource("6_tuuch")
+
+[node name="Map" parent="." instance=ExtResource("1_4m5uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.6, 0, 101.099)
 
 [node name="ProvinceSelected" parent="." instance=ExtResource("6_bd8vf")]
 
